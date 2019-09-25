@@ -1,0 +1,42 @@
+@model ItemViewModel
+
+@{
+    ViewData["Title"] = "Add";
+}
+
+<div class="add">
+    <div class="row">
+        <div class="col-md-4">
+        </div>
+        <div class="col-md-6 col-md-offset-1">
+            <h1>Add an Item</h1>
+            <div class="form-container">
+                <form asp-controller="Menu" asp-action="Add" method="post">
+                    <p class="message">Please add an Item:</p>  
+                    <div class="form-group">
+                        <label asp-for="Name">Name</label>
+                        <input class="form-control" asp-for="Name" />
+                        <span asp-validation-for="Name"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="Type">Type</label> <br />
+                        <select asp-for="Type">
+                            <option>Beverage</option>
+                            <option>Food</option>
+                        </select>
+                    </div>
+                        <div class="form-group">
+                        <label asp-for="Price">Price</label>
+                        <input class="form-control" asp-for="Price" />
+                        <span asp-validation-for="Price"></span>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    @{ await Html.RenderPartialAsync("_ValidationScriptsPartial"); }
+}

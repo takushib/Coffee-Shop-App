@@ -1,0 +1,41 @@
+@model CustomerFavoriteViewModel
+
+@{
+    ViewData["Title"] = "Add";
+}
+
+<div class="add">
+    <div class="row">
+        <div class="col-md-4">
+        </div>
+        <div class="col-md-6 col-md-offset-1">
+            <h1>Add Item to Favorite</h1>
+            <div class="form-container">
+                <form asp-controller="Favorites" asp-action="Add" method="post">
+                    <p class="message">Please choose a menu item to favorites:</p> 
+                    <h2>Choose Menu Item</h2> 
+                    <div class="form-group">
+                        <select asp-for="CustomerId">
+                        @foreach (var customer in Model.AllCustomers)
+                        {
+                            <option value="@customer.CustomerId">@customer.FullName</option>
+                        }
+                        </select>
+                        <select asp-for="ItemId">
+                        @foreach (var item in Model.AllItems)
+                        {
+                            <option value="@item.ItemId">@item.Name</option>
+                        }
+                        </select>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+@section Scripts {
+    @{ await Html.RenderPartialAsync("_ValidationScriptsPartial"); }
+}

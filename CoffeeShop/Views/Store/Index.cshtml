@@ -1,0 +1,58 @@
+﻿@model List<StoreViewModel>
+
+@{
+    ViewData["Title"] = "Stores";
+}
+<h2>@ViewData["Title"]</h2>
+
+<div class="row">
+    <div class="col-md-2 col-md-offset-10">
+        <a class="btn btn-primary" asp-controller="Store" asp-action="Add">Add a Store</a>
+    </div>
+</div>
+<div class="row search">
+    <div class="col-md-12">
+        <form asp-controller="Store" asp-action="Search">
+            <label>Search: <input type="text" name="query" />
+            </label>
+            <button type="submit" class="btn btn-sm btn-primary">Search</button>
+        </form>
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-12">
+<table class="table">
+    <tr>
+        <th>Name</th>
+        <th>Street</th>
+        <th>City</th>
+        <th>State</th>
+        <th>Zip</th>
+        <th>Phone Number</th>
+        <th></th>
+    </tr>
+    @foreach (var result in Model)
+    {
+        <tr>
+            <td>@result.Name</td>
+            <td>@result.Street</td>
+            <td>@result.City</td>
+            <td>@result.State</td>
+            <td>@result.Zip</td>
+            <td>@result.PhoneNumber</td>
+            <td>
+            <a class="btn btn-warning btn-sm"                 
+                    asp-controller="Store" 
+                    asp-action="Edit"
+                    asp-route-id="@result.StoreId">Edit</a>
+
+                <form asp-controller="Store" asp-action="Delete" asp-route-id="@result.StoreId" method="post">
+                    <button type="submit" class="btn btn-danger btn-sm">Delete</button>
+                </form>
+            </td>
+        </tr>
+    }
+</table>
+</div>
+</div>
+

@@ -1,0 +1,26 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="row">
+    <div class="col-md-12">
+        <h2>Welcome to Boardwalk Cafe</h2>
+        <ul>
+            <li><a asp-controller="Home" asp-action="About">About</a>: This page provides the story about our coffee shop.</li>
+            <li><a asp-controller="Account" asp-action="Index">Customers</a>: This page provides access to customer account information.</li>
+            <li>
+                <a asp-controller="Menu" asp-action="Index">Menu</a>: This page provides a list of items available in our coffee shop,
+                as well as the ability to add and remove them.
+            </li>
+            <li>
+                <a asp-controller="Order" asp-action="Index">Order</a>: This page allows the user place an order, view the list of orders,
+                view order details, as well as mark orders completed and picked up.
+            </li>
+            <li><a asp-controller="Favorites" asp-action="Index">Favorites</a>: This page allows the user to view and modify their favorite items.</li>
+            <li>
+                <a asp-controller="Store" asp-action="Index">Stores</a>: This page provides a list of our coffee shops and their information,
+                as well as the ability to add and remove them.
+            </li>
+        </ul>
+    </div>
+</div>

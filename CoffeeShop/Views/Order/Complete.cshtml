@@ -1,0 +1,21 @@
+@model OrderViewModel
+
+@{
+    ViewData["Title"] = "Complete";
+}
+
+<h2>Thank you!</h2>
+
+@if (Model.RewardEarned > 0)
+{
+    <div class="row">
+        <div class="col-md-12">
+            You've just earned @Model.RewardEarned points!
+        </div>
+    </div>
+}
+
+<div class="row">
+    <img class="col-md-8 col-md-offset-2" src="~/images/pics/coffee.jpg" />
+</div>
+

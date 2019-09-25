@@ -1,0 +1,58 @@
+@model List<OrderViewModel>
+
+@{
+    ViewData["Title"] = "Order";
+}
+<h2>@ViewData["Title"]</h2>
+
+<div class="row">
+    <div class="col-md-2 col-md-offset-10">
+        <a class="btn btn-primary" asp-controller="Order" asp-action="Create">Create an Order</a>
+    </div>
+</div>
+
+<div class="row search">
+    <div class="col-md-12">
+        <form asp-controller="Order" asp-action="Search">
+            <label>
+                Search: <input type="text" name="query" />
+            </label>
+            <button type="submit" class="btn btn-sm btn-primary">Search</button>
+        </form>
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-12">
+        <table class="table">
+            <tr>
+                <th>Order Id</th>
+                <th>Customer Name</th>
+                <th>Store Name</th>
+                <th>Date</th>
+                <th>Completed</th>
+                <th>Picked Up</th>
+                <th>Reward Used</th>
+                <th>Reward Earned</th>
+                <th>Sub Total</th>
+                <th>Tax Total</th>
+                <th>Grand Total</th>
+            </tr>
+            @foreach (var result in Model)
+            {
+                <tr>
+                    <td><a asp-controller="Order" asp-action="Details" asp-route-id="@result.OrderId">@result.OrderId</a></td>
+                    <td>@result.CustomerName</td>
+                    <td>@result.StoreName</td>
+                    <td>@result.Date</td>
+                    <td>@result.Completed</td>
+                    <td>@result.PickedUp</td>
+                    <td>@result.RewardUsed</td>
+                    <td>@result.RewardEarned</td>
+                    <td>@result.SubTotal</td>
+                    <td>@result.TaxTotal</td>
+                    <td>@result.GrandTotal</td>
+                </tr>
+            }
+        </table>
+    </div>
+</div>

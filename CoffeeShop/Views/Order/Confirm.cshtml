@@ -1,0 +1,79 @@
+@model OrderViewModel
+
+@{
+    ViewData["Title"] = "Confirm";
+}
+
+<div class="confirm">
+    <div class="row">
+        <div class="col-md-12">
+            <h1>Order Confirmation</h1>
+            <div class="form-container">
+                <form asp-controller="Order" asp-action="Confirm" method="post">
+                    <h3>Store</h3>
+                    @Model.StoreName
+
+                    <input type="hidden" asp-for="OrderId" />
+                    <table class="table">
+                        <tr>
+                            <th>Item Name</th>
+                            <th>Item Type</th>
+                            <th>Quantity</th>
+                            <th>Item Price</th>
+                        </tr>
+                        @foreach (var result in Model.OrderItems)
+                        {
+                            <tr>
+                                <td>@result.ItemName</td>
+                                <td>@result.ItemType</td>
+                                <td>@result.Quantity</td>
+                                <td>@Html.DisplayFor(_ => result.ItemPrice)</td>
+                            </tr>
+                        }
+                    </table>
+                    <div class="row">
+                        <div class="col-md-3 col-md-offset-9">
+                            <table class="table">
+                                <tr>
+                                    <th>Sub Total:</th>
+                                    <td>@Html.DisplayFor(_ => Model.SubTotal)</td>
+                                </tr>
+                                <tr>
+                                    <th>Tax Total:</th>
+                                    <td>@Html.DisplayFor(_ => Model.TaxTotal)</td>
+                                </tr>
+                                <tr>
+                                    <th>Grand Total:</th>
+                                    <td>@Html.DisplayFor(_ => Model.GrandTotal)</td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        @if (Model.CanPayWithPoints)
+                        {
+                            <label>
+                                <input type="checkbox" asp-for="PayWithPoints" /> Pay with reward points (@Model.CustomerRewardBalance points available)
+                            </label>
+                        }
+                        else
+                        {
+                            <p>
+                                Earn more points to earn free items (current point balance: @Model.CustomerRewardBalance)
+                            </p>
+                        }
+                    </div>
+
+                    <div class="form-group">
+                        <button type="submit" class="btn btn-primary">Complete Order</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+@section Scripts {
+    @{ await Html.RenderPartialAsync("_ValidationScriptsPartial"); }
+}

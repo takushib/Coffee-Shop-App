@@ -1,0 +1,59 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - Boardwalk Cafe</title>
+
+    <link href="https://fonts.googleapis.com/css?family=Fredericka+the+Great|Frijole|Great+Vibes|Handlee|Libre+Barcode+39+Text|Pacifico|Rock+Salt&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.css" />
+    <link rel="stylesheet" href="~/css/social-circles.min.css" />    
+    <link rel="stylesheet" href="~/css/site.css" />
+
+</head>
+<body> 
+    <nav id="navbar" class="navbar navbar-inverse">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a asp-area="" asp-controller="Home" asp-action="Index" class="navbar-brand">Boardwalk Cafe</a>
+            </div>
+            <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+                    <li><a asp-area="" asp-controller="Home" asp-action="About">About</a></li>
+                    <li><a asp-area="" asp-controller="Account" asp-action="Index">Customers</a></li>
+                    <li><a asp-area="" asp-controller="Menu" asp-action="Index">Menu</a></li>
+                    <li><a asp-area="" asp-controller="Order" asp-action="Index">Order</a></li>
+                    <li><a asp-area="" asp-controller="Favorites" asp-action="Index">Favorites</a></li>
+                    <li><a asp-area="" asp-controller="Store" asp-action="Index">Stores</a></li>
+                    <!-- <li><a class="icon-github social-button grey" href="http://github.com/"></a></li>
+                    <li><a class="icon-twitter social-button grey" href="http://twitter.com/"></a></li>
+                    <li><a class="icon-linkedin social-button grey" href="https://www.linkedin.com/"></a></li> -->
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    @RenderSection("Header", required: false)
+
+    <div class="container body-content">
+        @RenderBody()
+        <hr />
+        <footer>
+            <p>&copy; 2019 - CoffeeShop - Media from: <a>Pixabay.com</a></p>
+        </footer>
+    </div>
+
+    
+    <script src="~/lib/jquery/dist/jquery.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    
+    @RenderSection("Scripts", required: false)
+</body>
+</html>

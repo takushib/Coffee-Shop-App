@@ -1,0 +1,45 @@
+@model OrderViewModel
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<div class="create">
+    <div class="row">
+        <div class="col-md-4">
+        </div>
+        <div class="col-md-6 col-md-offset-1">
+            <h1>Create an Order</h1>
+            <div class="form-container">
+                <form asp-controller="Order" asp-action="Create" method="post">
+                    <p class="message">Please create an order:</p>  
+                    <h2>Choose Customer</h2>
+                    <div class="form-group">
+                        <select asp-for="CustomerId">
+                        @foreach (var customer in Model.AllCustomers)
+                        {
+                            <option value="@customer.CustomerId">@customer.FullName</option>
+                        }
+                        </select>
+                    </div>
+
+                    <h2>Choose Store</h2>
+                    <div class="form-group">
+                        <select asp-for="StoreId">
+                        @foreach (var store in Model.AllStores)
+                        {
+                            <option value="@store.StoreId">@store.Name</option>
+                        }
+                        </select>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+@section Scripts {
+    @{ await Html.RenderPartialAsync("_ValidationScriptsPartial"); }
+}

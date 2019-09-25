@@ -1,0 +1,181 @@
+﻿/* Home Page */
+.row ul {
+   list-style-type: none;
+}
+
+/* Wrapping element */
+/* Set some basic padding to keep content from hitting the edges */
+.body-content {
+    padding-right: 15px;
+    padding-left: 15px;
+    background: rgba(255, 255, 255, 0.80);
+    border: 1px solid #efefef;
+}
+
+.field-validation-error 
+{
+    color: red;
+}
+
+.navbar-brand {
+    font-size: 30px;
+    margin-top: 25px;
+    font-family: 'Fredericka the Great', cursive;
+}
+.navbar-nav, .navbar-brand {
+    text-transform: uppercase;
+}
+
+nav .navbar-nav {
+    float: right;
+}
+
+.navbar {
+    min-height: 30px;
+    background-color: rgba(0,0,0,0.5);
+    margin-top: 50px;
+    z-index: 1;
+}
+
+.navbar-inverse .navbar-brand:hover, 
+.navbar-inverse .navbar-brand:focus {
+    /* inspired by css-tricks.com */
+    background: -webkit-gradient(linear,left top,right top,from(#FFFB19),to(#FF0000));
+    background: linear-gradient(to right,#FFFB19,#FF0000);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    -webkit-box-decoration-break: clone;
+    box-decoration-break: clone;
+    text-shadow: none;
+}
+
+.navbar-inverse .navbar-nav > li > a:hover, 
+.navbar-inverse .navbar-nav > li > a:focus {
+    color: #0511F2;
+}
+
+.navbar-nav > li > a {
+    line-height: 80px;
+}
+
+.navbar-inverse .navbar-nav > li > a {
+    color:  white;
+    font-size: 15px;
+}
+
+.navbar-inverse .navbar-brand {
+    color: white;
+}
+
+/* The sticky class is added to the navbar with JS when it reaches its scroll position */
+.sticky {
+    position: fixed;
+    top: 0;
+    margin-top: 0;
+    width: 100%;
+    background: black;
+}
+
+/* Add some top padding to the page content to prevent sudden quick movement (as the navigation bar gets a new position at the top of the page (position:fixed and top:0) */
+.sticky + .body-content {
+    padding-top: 180px;
+}
+
+.social-button {
+    -webkit-box-sizing: content-box;
+       -moz-box-sizing: content-box;
+            box-sizing: content-box;
+}
+
+a.social-button.grey {
+    background-color: deepskyblue;
+    font-size: 20px;
+    align-items: center;
+    line-height: inherit;
+    
+}
+
+.icon-container {
+    text-align: center;  
+}
+
+body {
+    background: url(../images/pics/background.jpg);
+    background-position-y: bottom;
+    background-size: cover;
+    background-attachment: fixed;
+}
+
+form {
+    display: inline;
+}
+
+.search {
+    margin: 10px;
+}
+
+.table{
+    background: white;
+}
+
+/* Button styles based on Bootstrap */
+button {
+    font-size: 15px;
+    border-radius: .25rem;
+}
+
+.btn-warning {
+    color: #007bff;
+    background-color: white;
+    border-color: #007bff;
+    margin-right: 25px;
+    padding: 2px 15px;
+}
+
+.btn-warning:hover {
+    color: white;
+    background-color: #007bff;
+    border-color: #007bff;
+}
+
+.btn-danger {
+    color: #dc3545;
+    background-color: white;
+    border-color: #dc3545;
+    margin-right: 0px;
+}
+
+.btn-danger:hover {
+    color: white;
+    background-color: #dc3545;
+    border-color: #dc3545;
+}
+
+.btn-primary {
+    color: #28a745;
+    background-color: white;
+    border-color: #28a745;
+    margin-right: 25px;
+    padding: 4px 15px;
+}
+
+.btn-primary:hover {
+    color: white;
+    background-color: #28a745;
+    border-color: #28a745;
+}
+
+.update {
+    display: none;
+    color: #fd7e14;
+    background-color: transparent;
+    border-color: #fd7e14;
+    margin-right: 0px;
+    padding: 2px 15px;
+}
+
+.update:hover {
+    color: white;
+    background-color: #fd7e14;
+    border-color: #fd7e14;
+}

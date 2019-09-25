@@ -1,0 +1,23 @@
+﻿@model List<DiagnosticViewModel>
+
+@{
+    ViewData["Title"] = "Diagnostic";
+}
+<h2>@ViewData["Title"]</h2>
+
+
+<p>Result of diagnostic query:</p>
+
+<table class="table">
+    <tr>
+        <th>Id</th>
+        <th>Text</th>
+    </tr>
+    @foreach (var result in Model)
+    {
+        <tr>
+            <td>@result.Id</td>
+            <td>@result.Text</td>
+        </tr>
+    }
+</table>
